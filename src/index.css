@@ -32,6 +32,10 @@ ol, ul {
   width: 34px;
 }
 
+button.bingo {
+  background-color: aquamarine;
+}
+
 .square:focus {
   outline: none;
 }
