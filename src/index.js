@@ -102,6 +102,8 @@ class Game extends React.Component {
       status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
     }
 
+    const revertButton = <button>revert history</button>;
+
     return (
       <div className="game">
         <div className="game-board">
@@ -112,6 +114,7 @@ class Game extends React.Component {
         </div>
         <div className="game-info">
           <div>{status}</div>
+          <div>{revertButton}</div>
           <ol>{moves}</ol>
         </div>
       </div>
