@@ -17,10 +17,20 @@ class Board extends React.Component {
   renderSquare(i, isBingo) {
     return (
       <Square
+        key={i}
         value={this.props.squares[i]}
         isBingo={isBingo}
         onClick={() => this.props.onClick(i)}
       />
+    );
+  }
+
+  rendorRows(r, line) {
+    return (
+      [0, 1, 2].map((c) => {
+        const index = r * 3 + c;
+        return this.renderSquare(index, line.includes(index));
+      })
     );
   }
 
@@ -29,9 +39,7 @@ class Board extends React.Component {
     const rows = [0, 1, 2].map((i) => {
       return (
         <div className="board-row" key={i}>
-          {this.renderSquare(i * 3, line.includes(i * 3))}
-          {this.renderSquare(i * 3 + 1, line.includes(i * 3 + 1))}
-          {this.renderSquare(i * 3 + 2, line.includes(i * 3 + 2))}
+          {this.rendorRows(i, line)}
         </div>
       );
     });
