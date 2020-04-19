@@ -99,8 +99,8 @@ class Game extends React.Component {
         )
       })
     }
+    const moves = this.state.isAsc ? ascMoves() : ascMoves().reverse();
 
-    const moves = ascMoves();
     let status;
     if (winner) {
       status = 'Winner: ' + winner;
