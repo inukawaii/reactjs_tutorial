@@ -68,7 +68,7 @@ class Game extends React.Component {
         latestIndex: i
       }]),
       stepNumber: history.length,
-      xIsNext: !this.state.xIsNext, 
+      xIsNext: !this.state.xIsNext,
     });
   }
   jumpTo(step) {
@@ -87,7 +87,7 @@ class Game extends React.Component {
         const row = Math.floor(step.latestIndex / 3);
         const col = step.latestIndex % 3 + 1;
         const position = move ? `(${col},${row})` : '';
-        const desc = move ? 
+        const desc = move ?
           'Go to move #' + move :
           'Go to game start';
         const className = this.state.stepNumber === move ? 'current-step' : ''
@@ -108,12 +108,12 @@ class Game extends React.Component {
       status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
     }
 
-    const revertButton = <button onClick={() => { this.setState({isAsc: !this.state.isAsc}) }}>revert history</button>;
+    const revertButton = <button onClick={() => { this.setState({ isAsc: !this.state.isAsc }) }}>revert history</button>;
 
     return (
       <div className="game">
         <div className="game-board">
-          <Board 
+          <Board
             squares={current.squares}
             onClick={(i) => this.handleClick(i)}
           />
