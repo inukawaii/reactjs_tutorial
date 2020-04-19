@@ -115,7 +115,7 @@ class Game extends React.Component {
     if (winner) {
       status = 'Winner: ' + winner;
     } else {
-      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+      status = this.state.stepNumber === 9 ? 'Draw match.' : 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
     }
 
     const revertButton = <button onClick={() => { this.setState({ isAsc: !this.state.isAsc }) }}>revert history</button>;
@@ -160,7 +160,7 @@ function bingoLine(squares) {
 
 function calculateWinner(squares) {
   const line = bingoLine(squares);
-  return line.length === 0 ? null : line[0];
+  return line.length === 0 ? null : squares[line[0]];
 }
 
 // ========================================
