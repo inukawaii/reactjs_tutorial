@@ -49,6 +49,7 @@ class Game extends React.Component {
         squares: Array(9).fill(null),
         latestIndex: null,
       }],
+      isAsc: true,
       stepNumber: 0,
       xIsNext: true,
     }
@@ -102,7 +103,7 @@ class Game extends React.Component {
       status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
     }
 
-    const revertButton = <button>revert history</button>;
+    const revertButton = <button onClick={() => { this.setState({isAsc: !this.state.isAsc}) }}>revert history</button>;
 
     return (
       <div className="game">
