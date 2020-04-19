@@ -24,7 +24,7 @@ class Board extends React.Component {
   }
 
   render() {
-    const rows = [1, 2, 3].map((i) => {
+    const rows = [0, 1, 2].map((i) => {
       return (
         <div className="board-row" key={i}>
           {this.renderSquare(i * 3)}
