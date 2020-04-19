@@ -94,7 +94,7 @@ class Game extends React.Component {
 
     const ascMoves = () => {
       return history.map((step, move) => {
-        const row = Math.floor(step.latestIndex / 3);
+        const row = Math.floor(step.latestIndex / 3 + 1);
         const col = step.latestIndex % 3 + 1;
         const position = move ? `(${col},${row})` : '';
         const desc = move ?
